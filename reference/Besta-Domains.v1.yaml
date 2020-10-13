@@ -11,7 +11,7 @@ paths:
   /v1/suggestions:
     post:
       summary: 100s of domain name suggestions + related TLDs
-      operationId: post-v1-suggestions
+      operationId: Suggestions
       responses:
         '200':
           description: OK
@@ -108,10 +108,13 @@ paths:
                         - my hellowrld .app
                         - hellowrld online .com
       description: 100s of domain name suggestions + related TLDs
+      tags:
+        - v1
   /v1/availability:
     post:
       summary: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
-      tags: []
+      tags:
+        - v1
       responses:
         '200':
           description: OK
@@ -132,7 +135,9 @@ paths:
                       unavailable.co: 10
                       premium.net: 31459
                       availableasffd.io: 1
-      operationId: get-v1-availability
+      operationId: Availability
       description: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
 components:
   schemas: {}
+tags:
+  - name: v1
