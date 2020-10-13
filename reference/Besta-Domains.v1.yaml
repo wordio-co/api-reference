@@ -1,0 +1,138 @@
+openapi: 3.0.0
+info:
+  title: Besta Domains
+  version: '1.0'
+  contact:
+    name: Paul Shorey
+    url: paulshorey.com
+servers:
+  - url: api.besta.domains
+paths:
+  /v1/suggestions:
+    post:
+      summary: ''
+      operationId: post-v1-suggestions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  string_original:
+                    type: string
+                    minLength: 1
+                  tld:
+                    type: string
+                    minLength: 1
+                  string:
+                    type: string
+                    minLength: 1
+                  tlds:
+                    type: array
+                    items:
+                      required: []
+                      properties: {}
+                  domains:
+                    type: object
+                    properties:
+                      tld:
+                        type: array
+                        items:
+                          required: []
+                          properties: {}
+                      name:
+                        type: array
+                        items:
+                          required: []
+                          properties: {}
+                      word hack:
+                        type: array
+                        items:
+                          required: []
+                          properties: {}
+                      phrase hack:
+                        type: array
+                        items:
+                          required: []
+                          properties: {}
+                    required:
+                      - tld
+                      - name
+                      - word hack
+                      - phrase hack
+                required:
+                  - string_original
+                  - tld
+                  - string
+                  - tlds
+                  - domains
+              examples:
+                '?str=hellowrld':
+                  value:
+                    string_original: hellowrld
+                    tld: com
+                    string: hello world
+                    tlds:
+                      - world
+                      - fyi
+                      - earth
+                      - info
+                      - global
+                      - travel
+                      - international
+                      - us
+                      - eco
+                    domains:
+                      tld:
+                        - hellowrld .fyi
+                        - hellowrld .earth
+                        - hellowrld .info
+                        - hellowrld .global
+                      name:
+                        - hola society .com
+                        - howdy .earth
+                        - well hello .world
+                        - shalom .travel
+                        - earth .eco
+                        - hello there .earth
+                        - society .space
+                      word hack:
+                        - worlda .eco
+                        - planet .io
+                        - orbus .org
+                      phrase hack:
+                        - get hellowrld .eco
+                        - my hellowrld .app
+                        - hellowrld online .com
+      description: returns 100s of domain name suggestions + related TLDs
+  /v1/availability:
+    post:
+      summary: Your POST endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  domains:
+                    type: object
+                required:
+                  - domains
+              examples:
+                'unavailable.co, premium.net, availableasffd.io':
+                  value:
+                    domains:
+                      unavailable.co: 10
+                      premium.net: 31459
+                      availableasffd.io: 1
+      operationId: get-v1-availability
+      description: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
+components:
+  schemas: {}
