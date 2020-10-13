@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: Domain Availability 100
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /v1/availability:
+    post:
+      summary: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
+      tags:
+        - v1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  domains:
+                    type: object
+                required:
+                  - domains
+              examples:
+                'unavailable.co, premium.net, availableasffd.io':
+                  value:
+                    domains:
+                      unavailable.co: 10
+                      premium.net: 31459
+                      availableasffd.io: 1
+      operationId: Availability
+      description: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
+components:
+  schemas: {}
+tags:
+  - name: v1
