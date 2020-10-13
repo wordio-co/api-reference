@@ -33,6 +33,28 @@ paths:
                       availableasffd.io: 1
       operationId: Availability
       description: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                domains:
+                  type: array
+                  description: 'List of domain names. JSON Array. Each domain must be a string, no spaces, include TLD.'
+                  items:
+                    type: object
+              required:
+                - domains
+            examples:
+              'unavailable.co, premium.net, availableasffd.io':
+                value:
+                  domains:
+                    - unavailable.co
+                    - premium.net
+                    - availableasffd.io
+        description: Send us a list of domains to check. Up to 100 items. Items after 100 will be ignored. We'll return to you an object/dictionary of checked domain names. Each will have a value. Value is a number code.
 components:
   schemas: {}
 tags:

@@ -108,9 +108,23 @@ paths:
                         - get hellowrld .eco
                         - my hellowrld .app
                         - hellowrld online .com
-      description: 100s of domain name suggestions + related TLDs
+      description: 100s of domain name suggestions + related TLDs.
       tags:
         - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      parameters:
+        - $ref: 'https://besta.domains/api'
+        - schema:
+            type: string
+          in: query
+          name: tld
+          description: Top-level domain name (the "app" in "bestweb.app"). Complex extensions ("co.uk") are allowed. Default value is "com".
 components:
   schemas: {}
 tags:
