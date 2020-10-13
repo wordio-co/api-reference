@@ -10,7 +10,7 @@ servers:
 paths:
   /v1/suggestions:
     post:
-      summary: ''
+      summary: 100s of domain name suggestions + related TLDs
       operationId: post-v1-suggestions
       responses:
         '200':
@@ -107,10 +107,10 @@ paths:
                         - get hellowrld .eco
                         - my hellowrld .app
                         - hellowrld online .com
-      description: returns 100s of domain name suggestions + related TLDs
+      description: 100s of domain name suggestions + related TLDs
   /v1/availability:
     post:
-      summary: Your POST endpoint
+      summary: 'Check 100 domain names at a time! Find which are available, aftermarket, expiring, invalid, etc.'
       tags: []
       responses:
         '200':
