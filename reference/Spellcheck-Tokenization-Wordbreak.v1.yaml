@@ -6,7 +6,7 @@ info:
     name: Paul Shorey
     url: paulshorey.com
     email: hello@wordio.co
-  description: 'Text analysis and spell-check algorithms. See also our thesaurus and word info APIs. DOCUMENTATION at https://wordio.co/api'
+  description: 'Text-analysis and spell-checking for web apps. Most accurate. 100000s of words. See also our thesaurus and word info APIs. DOCUMENTATION at https://wordio.co/api'
   termsOfService: 'https://wordio.co/terms'
 servers:
   - url: 'http://142.93.251.57'
