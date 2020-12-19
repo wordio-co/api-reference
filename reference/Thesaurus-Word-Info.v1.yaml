@@ -1,0 +1,62 @@
+openapi: 3.0.0
+info:
+  title: Thesaurus and Word Info
+  version: '1.0'
+  contact:
+    name: Paul Shorey
+    url: paulshorey.com
+    email: hello@wordio.co
+  description: 'Synonyms, root, abbreviations, sentiment-analysis, and other word info. See also our spell-check and tokenization (text analysis) APIs. DOCUMENTATION at https://wordio.co/api'
+  termsOfService: 'https://wordio.co/terms'
+servers:
+  - url: 'http://142.93.251.57'
+paths:
+  /v1/synonyms:
+    get:
+      summary: Synonyms - grouped by part of speech and sentiment
+      operationId: GET/v1/synonyms
+      responses:
+        '200':
+          description: OK
+      description: 'Returns synonyms and related words about a morpheme (any word, short phrase, or abbreviation). DOCUMENTATION: https://wordio.co/api'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'Word or short phrase like "doctor" or "medical doctor". Short or long: "i" or "water under the bridge". Small words, especially single letter are experimental.'
+          required: true
+        - schema:
+            type: boolean
+          in: query
+          name: partsofspeech
+          description: 'Group synonyms by part of speech, ordered by most relevant. Default = true'
+        - schema:
+            type: boolean
+          in: query
+          name: negative
+          description: 'By default, this API returns ONLY positive/neutral synonyms. Negative synonyms are ignored. Set this to true to allow negative words. More info at https://wordio.co/api'
+      tags:
+        - v1
+    parameters: []
+  /v1/word-info:
+    get:
+      summary: 'Root, Plural, Abbreviation, Acronym, Parts of Speech, Sentiment'
+      operationId: GET/v1/wordinfo
+      responses:
+        '200':
+          description: OK
+      description: 'Returns information about a word - is it plural, singular, conjunction? - its root form, abbreviations, acronyms - parts of speech - sentiment analysis score (positive/neutral or negative). DOCUMENTATION at https://wordio.co/api'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'Word or short phrase like "doctor" or "medical doctor". Short or long: "i" or "water under the bridge". Small words, especially single letter are experimental.'
+      tags:
+        - v1
+    parameters: []
+components:
+  schemas: {}
+tags:
+  - name: v1

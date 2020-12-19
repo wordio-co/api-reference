@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Spellcheck Tokenization and Word info
+  version: '1.0'
+  contact:
+    name: Paul Shorey
+    url: paulshorey.com
+    email: hello@wordio.co
+  description: 'Text analysis and spell-check algorithms. See also our thesaurus and word info APIs. DOCUMENTATION at https://wordio.co/api'
+  termsOfService: 'https://wordio.co/terms'
+servers:
+  - url: 'http://142.93.251.57'
+paths:
+  /v1/spellcheck-tokenization:
+    get:
+      summary: Spellcheck + Tokenization (break string of characters into words)
+      operationId: GET/v1/spellcheck-tokenization
+      responses:
+        '200':
+          description: OK
+      description: |-
+        This makes a concurrent request to both Bing and Google spellcheck APIs. This will add approximately 0.5 seconds to your wait time! If you'd rather not spell-check the phrase, and get your results much faster, use our /v1/tokenization endpoint. Read more at https://wordio.co/api
+
+        Input a string of characters, with or without spaces. Get back an array of words, with the part of speech, capitalization, and punctuation of each word. You actually get back multiple arrays of words. For example "unitedstatesofamerica" gets back ["United States"(n) "of" "America"(n)] and ["united"(adj), "states"(n), "of", "America"(n)]. 
+
+        Punctuation inputs and outputs are currently experimental. If you'd like this endpoint to also include synonyms and derivations about each word, please contact the developer. https://wordio.co
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'String of characters. With or without spaces. Punctuation is allowed, but is currently experimental.'
+      tags:
+        - v1
+  /v1/spellcheck:
+    get:
+      summary: Spellcheck
+      operationId: GET/v1/spellcheck
+      responses:
+        '200':
+          description: OK
+      description: 'Input a string of characters, with or without spaces. Receive a spell-checked phrase. DOCUMENTATION at https://wordio.co/api'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'String of characters. With or without spaces. Punctuation is allowed, but is currently experimental.'
+      tags:
+        - v1
+  /v1/tokenization:
+    get:
+      summary: Tokenization (break string of characters into words)
+      operationId: GET/v1/tokenization
+      responses:
+        '200':
+          description: OK
+      description: |-
+        Returns the answer much faster than /v1/spellcheck-tokenization. However, it does not perform any spell-check. Read more at https://wordio.co/api
+
+        Input a string of characters, with or without spaces. Get back an array of words, with the part of speech, capitalization, and punctuation of each word. You actually get back multiple arrays of words. For example "unitedstatesofamerica" gets back ["United States"(n) "of" "America"(n)] and ["united"(adj), "states"(n), "of", "America"(n)]. 
+
+        Punctuation inputs and outputs are currently experimental. If you'd like this endpoint to also include synonyms and derivations about each word, please contact the developer. https://wordio.co
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'String of characters. With or without spaces. Punctuation is allowed, but is currently experimental.'
+      tags:
+        - v1
+components:
+  schemas: {}
+tags:
+  - name: v1
