@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Spellcheck Tokenization and Word info
+  title: Spellcheck + Wordbreaking + Tokenization
   version: '1.0'
   contact:
     name: Paul Shorey

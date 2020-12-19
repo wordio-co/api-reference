@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Thesaurus and Word Info
+  title: Synonyms + Word Info
   version: '1.0'
   contact:
     name: Paul Shorey
