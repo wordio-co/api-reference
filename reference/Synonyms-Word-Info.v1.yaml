@@ -42,7 +42,7 @@ paths:
   /v1/word-info:
     get:
       summary: 'Root, Plural, Abbreviation, Acronym, Parts of Speech, Sentiment'
-      operationId: GET/v1/wordinfo
+      operationId: GET/v1/word-info
       responses:
         '200':
           description: OK
