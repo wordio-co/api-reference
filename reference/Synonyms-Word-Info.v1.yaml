@@ -56,6 +56,23 @@ paths:
       tags:
         - v1
     parameters: []
+  /v1/word:
+    get:
+      summary: 'All info we have about a word. Includes content from both `/v1/synonyms` and `/v1/word-info`'
+      operationId: GET/v1/word
+      responses:
+        '200':
+          description: OK
+      description: 'Returns synonyms grouped by part-of-speech and by sentiment. Returns information about a word - is it plural, singular, conjunction? - its root form, abbreviations, acronyms - parts of speech - sentiment analysis score (positive/neutral or negative). DOCUMENTATION at https://wordio.co/api'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: str
+          description: 'Word or short phrase like "doctor" or "medical doctor". Short or long: "i" or "water under the bridge". Small words, especially single letter are experimental.'
+      tags:
+        - v1
+    parameters: []
 components:
   schemas: {}
 tags:
