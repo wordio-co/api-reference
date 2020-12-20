@@ -6,7 +6,7 @@ info:
     name: Paul Shorey
     url: paulshorey.com
     email: hello@wordio.co
-  description: 'Thesaurus for AI. Get sentiment score, root, singular, abbr., parts of speech, acronyms, synonyms, etc. Lemmatization. See also our spell-check, word-breaking, tokenization APIs. DOCUMENTATION at https://wordio.co/api'
+  description: 'Thesaurus for AI. Get sentiment score, root, singular, abbr., parts of speech, acronyms, synonyms, etc. Lemmatization. Most accurate word info API. See also our spell-check, word-breaking, tokenization APIs. DOCUMENTATION at https://wordio.co/api'
   termsOfService: 'https://wordio.co/terms'
 servers:
   - url: 'http://142.93.251.57'
@@ -58,7 +58,7 @@ paths:
     parameters: []
   /v1/word:
     get:
-      summary: 'All info we have about a word. Includes content from both `/v1/synonyms` and `/v1/word-info`'
+      summary: All info we have about a word. Includes content from both `/v1/synonyms` and `/v1/word-info`
       operationId: GET/v1/word
       responses:
         '200':
