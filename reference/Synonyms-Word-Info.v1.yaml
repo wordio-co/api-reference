@@ -70,6 +70,7 @@ paths:
           in: query
           name: str
           description: 'Word or short phrase like "doctor" or "medical doctor". Short or long: "i" or "water under the bridge". Small words, especially single letter are experimental.'
+          required: true
       tags:
         - v1
     parameters: []
