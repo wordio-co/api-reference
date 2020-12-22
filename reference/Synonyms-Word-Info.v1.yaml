@@ -18,7 +18,11 @@ paths:
       responses:
         '200':
           description: OK
-      description: 'Returns synonyms and related words about a morpheme (any word, short phrase, or abbreviation). DOCUMENTATION: https://wordio.co/api'
+      description: |-
+        Returns synonyms and related words about a morpheme (any word, short phrase, or abbreviation). DOCUMENTATION: https://wordio.co/api
+
+        type:
+        best_by_pos, all_by_pos, all_by_relevance,all_by_relevance
       parameters:
         - schema:
             type: string
@@ -26,16 +30,6 @@ paths:
           name: str
           description: 'Word or short phrase like "doctor" or "medical doctor". Short or long: "i" or "water under the bridge". Small words, especially single letter are experimental.'
           required: true
-        - schema:
-            type: boolean
-          in: query
-          name: partsofspeech
-          description: 'Group synonyms by part of speech, ordered by most relevant. Default = true'
-        - schema:
-            type: boolean
-          in: query
-          name: negative
-          description: 'By default, this API returns ONLY positive/neutral synonyms. Negative synonyms are ignored. Set this to true to allow negative words. More info at https://wordio.co/api'
       tags:
         - v1
     parameters: []
